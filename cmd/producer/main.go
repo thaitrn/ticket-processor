@@ -74,7 +74,7 @@ func main() {
 				Data:      fmt.Sprintf("Ticket data %d", ticketCounter),
 			}
 
-			if err := producer.SendTicketWithRetry(ticket, metrics); err != nil {
+			if err := producer.SendTicket(ticket); err != nil {
 				logger.Error("Failed to send ticket",
 					zap.Error(err),
 					zap.String("ticket_id", ticket.ID),
